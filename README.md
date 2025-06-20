@@ -10,12 +10,15 @@ Whether you're locked out of your system, recovering lost data, or fixing startu
 
 - [What is Hiren’s Boot CD PE?](#what-is-hirens-boot-cd-pe)
 - [What You Need](#what-you-need)
-- [Step 1: Boot from Hiren’s Boot CD (DVD/USB)](#step-1-boot-from-hirens-boot-cd-dvdusb)
-- [Step 2: Explore the Recovery Environment](#step-2-explore-the-recovery-environment)
-- [Step 3: Use Key Tools (Examples)](#step-3-use-key-tools-examples)
-- [Step 4: Exit and Reboot](#step-4-exit-and-reboot)
+- [Step 1: Create Bootable Media](#step-1-create-bootable-media)
+- [Step 2: Boot from Hiren’s Boot CD (DVD/USB)](#step-2-boot-from-hirens-boot-cd-dvdusb)
+- [Step 3: Explore the Recovery Environment](#step-3-explore-the-recovery-environment)
+- [Step 4: Use Key Tools (Examples)](#step-4-use-key-tools-examples)
+- [Step 5: Exit and Reboot](#step-5-exit-and-reboot)
 - [Device-Specific Guides](#device-specific-guides)
+- [OS-Specific Guides](#os-specific-guides)
 - [FAQ](#faq)
+- [Contributing](#contributing)
 - [License](#license)
 
 ---
@@ -38,111 +41,151 @@ Whether you're locked out of your system, recovering lost data, or fixing startu
 
 ## 🧰 What You Need
 
-- ✅ A PC or laptop running **Windows 10** (any brand)
-- ✅ The **Hiren’s Boot CD PE x64 (2019) ISO**
-- ✅ A **USB drive (4GB+)** or a **blank DVD**
-- ✅ [Rufus](https://rufus.ie/) (if using USB)
-- ✅ Optional: An external drive for backups
+- ✅ A PC or laptop running Windows (any brand)
+- ✅ The **Hiren’s Boot CD PE x64 (2019) ISO** file
+- ✅ A **USB flash drive (4GB+)** or a **blank DVD**
+- ✅ [Rufus](https://rufus.ie/) (recommended for USB creation)
+- ✅ Optional: External drive for backups and recovered data
 
 ---
 
-## 🔁 Step 1: Boot from Hiren’s Boot CD (DVD/USB)
+## Step 1: Create Bootable Media
 
-### For USB Boot:
-1. Use **Rufus** to create a bootable USB using the Hiren’s ISO.
-2. Insert the USB into the PC.
-3. Power on the PC and enter the **boot menu**:
-   - HP: `Esc` → `F9`
-   - Dell: `F12`
-   - Lenovo: `F12` or `Novo button`
-   - Acer: `F12`
-4. Select the USB drive to boot.
+### Using Rufus to create a bootable USB:
 
-### For DVD Boot:
-1. Burn the ISO to DVD using **Windows Disc Image Burner** or **ImgBurn**.
-2. Insert the DVD and restart the PC.
-3. Enter the **boot menu** and choose the DVD drive.
+1. Download and launch [Rufus](https://rufus.ie/).
+2. Insert your USB flash drive (all data will be erased).
+3. Select the USB drive in Rufus.
+4. Click **SELECT** and choose the Hiren’s Boot CD PE ISO.
+5. Choose partition scheme:
+   - GPT for UEFI systems
+   - MBR for Legacy BIOS systems
+6. Select **FAT32** for file system (preferred for UEFI), or **NTFS** for Legacy BIOS.
+7. Click **START** and wait for completion.
 
-> ⚠️ If booting fails, disable **Secure Boot** and enable **Legacy Support** in BIOS.
+### Creating a bootable DVD:
 
----
-
-## 🪟 Step 2: Explore the Recovery Environment
-
-Once booted, Hiren’s loads a **Windows 10 PE desktop**. No installation is needed.
-
-### Included Tools:
-- **Macrium Reflect** – System imaging and backups
-- **AOMEI Partition Assistant** – Disk partitioning
-- **Lazesoft Recovery Suite** – Password reset, registry recovery
-- **Malwarebytes** – Virus and malware removal
-- **Recuva** – File recovery
-- **7-Zip** – File browsing and extraction
-- **CPU-Z, HWMonitor** – Hardware diagnostics
+1. Insert a blank DVD into your burner.
+2. Right-click the ISO file and choose **Burn disc image** (Windows built-in) or use ImgBurn.
+3. Follow prompts to complete burning.
 
 ---
 
-## 🛠️ Step 3: Use Key Tools (Examples)
+## Step 2: Boot from Hiren’s Boot CD (DVD/USB)
 
-### 🔑 Reset a Forgotten Password:
-1. Open `Lazesoft Password Recovery`.
-2. Select your Windows installation and user account.
-3. Reset the password to blank or a new one.
-4. Reboot and log in.
-
-### 💾 Recover Deleted Files:
-1. Launch `Recuva`.
-2. Select the drive to scan.
-3. Recover files to an external backup drive.
-
----
-
-## 🔚 Step 4: Exit and Reboot
-
-- Save any recovered data or changes.
-- Remove the USB/DVD.
-- Reboot your computer.
-- Optionally, re-enable **Secure Boot** in BIOS if you disabled it earlier.
+- Insert your bootable USB or DVD.
+- Power on your PC.
+- Enter the **Boot Menu** (keys vary by brand):
+  - HP: `Esc` then `F9`
+  - Dell: `F12`
+  - Lenovo: `F12` or **Novo button**
+  - Acer: `F12`
+  - Custom PCs: `F8`, `F11`, `F12`, or `Del`
+- Select your USB or DVD device.
+- If it doesn’t appear:
+  - Enter BIOS/UEFI setup.
+  - Disable **Secure Boot**.
+  - Enable **Legacy Boot** or **CSM**.
+  - Adjust boot priority.
 
 ---
 
-## 📁 Device-Specific Guides
+## Step 3: Explore the Recovery Environment
 
-Looking for a guide specific to your laptop or OS version? Check these:
+Booting loads a Windows 10 PE desktop with included recovery tools:
 
-### 🏷️ By Manufacturer:
-- [🖥 HP Laptops & Desktops](devices/hp.md)
-- [💼 Dell Systems](devices/dell.md)
-- [💻 Lenovo Devices](devices/lenovo.md)
-- [🧳 Acer Systems](devices/acer.md)
-- [🧰 Custom/Whitebox PCs](devices/custom.md)
-
-### 🪟 By Operating System:
-- [🪟 Windows 10](os/windows10.md)
-- [🪟 Windows 11 (Beta)](os/windows11.md)
-- [📀 Legacy Systems (Windows 7/8)](os/windows7-8.md)
-
-> 💡 Don’t see your device? Feel free to contribute a guide or open an issue!
+- Macrium Reflect (imaging)
+- AOMEI Partition Assistant (partitioning)
+- Lazesoft Recovery Suite (password reset)
+- Malwarebytes (malware removal)
+- Recuva (file recovery)
+- 7-Zip (file management)
+- CPU-Z & HWMonitor (hardware diagnostics)
 
 ---
 
-## ❓ FAQ
+## Step 4: Use Key Tools (Examples)
 
-**Q: Can I use this on Windows 11?**  
-Yes, most tools work with Windows 11 as well, though the environment is based on Windows 10.
+### Reset a Forgotten Password
 
-**Q: Is this safe?**  
-Yes, Hiren’s Boot CD PE uses reputable, free tools and does not modify your system unless you choose to.
+- Open **Lazesoft Password Recovery**.
+- Select your Windows installation.
+- Reset or remove user passwords.
+- Reboot to log in.
 
-**Q: Do I need admin access to use it?**  
-No, since it runs outside of your OS, you can reset admin passwords or access data without logging in.
+### Recover Deleted Files
 
----
-
-## 📄 License
-
-All tools included in Hiren’s Boot CD are free for personal and educational use. This tutorial is licensed under the [MIT License](LICENSE).
+- Launch **Recuva**.
+- Scan desired drives.
+- Recover files to external storage.
 
 ---
 
-> Made with 💻 by [4troDev](https://github.com/4troDev) – feel free to contribute or open an issue if you need help!
+## Step 5: Exit and Reboot
+
+- Save all data and close tools.
+- Remove the USB or DVD.
+- Restart your PC.
+- Optionally, re-enable **Secure Boot** in BIOS for security.
+
+---
+
+## Device-Specific Guides
+
+- [HP Laptops & Desktops](devices/hp.md)
+- [Dell Systems](devices/dell.md)
+- [Lenovo Devices](devices/lenovo.md)
+- [Acer Systems](devices/acer.md)
+- [Custom / Whitebox PCs](devices/custom.md)
+
+---
+
+## OS-Specific Guides
+
+- [Windows 7 & 8](os/windows7-8.md)
+- [Windows 10](os/windows10.md)
+- [Windows 11 (Beta)](os/windows11.md)
+
+---
+
+## FAQ
+
+**Q: Can I use this with Windows 11?**  
+Yes, most tools are compatible but some newer hardware may have limited support.
+
+**Q: Is it safe?**  
+Yes, tools are reputable and non-destructive unless you choose to modify system files.
+
+**Q: Do I need admin access?**  
+No, since you boot outside your installed OS.
+
+---
+
+## Contributing
+
+Contributions welcome! Please:
+
+- Open issues for bugs or questions.
+- Submit pull requests for new device or OS guides.
+- Suggest improvements to existing docs.
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
+
+---
+
+## License
+
+This repository’s content is licensed under the MIT License. See [LICENSE](LICENSE).
+
+---
+
+## Additional Resources
+
+- [Creating Bootable Media Guide](bootable-media.md)
+- Images and screenshots in `/images/`
+- Issue templates for easier bug reports
+
+---
+
+Made with 💻 by [4troDev](https://github.com/4troDev)  
+Feel free to fork, contribute, or report issues!
